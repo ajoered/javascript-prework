@@ -14,6 +14,7 @@
 // You can use 'result' variable to store the resulting letter.
 // If your code works, the last three equalities will be "true"
 
+/*
 function dniLetter( dni ) {
 
 	var error;
@@ -41,8 +42,7 @@ function dniLetter( dni ) {
 console.log( dniLetter( 12345678 ) === 'Z');
 console.log( dniLetter( 34667892 ) === 'S');
 console.log( dniLetter( 92234488 ) === 'A');
-
-
+*/
 
 //EXERCISE 2
 //
@@ -52,10 +52,10 @@ console.log( dniLetter( 92234488 ) === 'A');
 // Of course it has to keep working as usual with right inputs.
 
 
-
+/*
 console.log( dniLetter( -1 ) === 'Invalid parameter');
 console.log( dniLetter( "A1234567" ) === 'Invalid parameter');
-
+*/
 
 //EXERCISE 3
 //
@@ -64,17 +64,26 @@ console.log( dniLetter( "A1234567" ) === 'Invalid parameter');
 // Open the console and reload the index page to see the result of the code.
 // Write a function that takes an array of words and returns the length of the longest one.
 
+
 /*
-
 function findLongestWord( array_words ){
+	var n;
+	var currentLength;
+	var result = 0;
 
+	for (n = 0; n < array_words.length; n++) {
+		if (array_words[n].length > result)
+			result = array_words[n].length
+	}
+		
+return result
 }
 
 console.log( findLongestWord( ["Richie", "Joanie", "Greg", "Marcia", "Bobby"] ) ===6 );
 console.log( findLongestWord( ["Blanka", "Zangief", "Chun Li", "Guile"] ) === 7 );
 console.log( findLongestWord( ["Red", "Blue", "Green"] ) === 5 );
-
 */
+
 
 //EXERCISE 4
 //
@@ -84,46 +93,58 @@ console.log( findLongestWord( ["Red", "Blue", "Green"] ) === 5 );
 // You have to complete the calculateAverage function (it is a few lines below), and it has
 // to return the average of every number in a array instead of the "Not implemented yet" message.
 
-/*
 
+/*
 var array_lengths = [];
 array_lengths.push( findLongestWord( ["Richie", "Joanie", "Greg", "Marcia", "Bobby"]) );
 array_lengths.push( findLongestWord( ["Blanka", "Zangief", "Chun Li", "Guile"] ) );
 array_lengths.push( findLongestWord( ["Red", "Blue", "Green"] ) );
+array_lengths.push( findLongestWord( ["Richie", "Joanie", "Greg", "Marcia", "Bobby Pedro de Los Rios"]) )
 //<place to add more lines>, read next commented text and you will understand
 
 console.log( "These are the longest lengths of each group: " + array_lengths );
 console.log( calculateAverage( array_lengths ) === 6 && "The average of longest lengths is: " + calculateAverage( array_lengths ))
 
-function calculateAverage( array )
-{
-	return( "Not implemented yet" )
+function calculateAverage( array ){
+	var sum = 0;
+	var value;
+		for (value = 0; value < array.length; value++) {
+			sum += array[value];
+		}
+		
+	var average = sum / array.length;
+		
+	return( average );
 }
+*/
 
 // Now add more lengths to the array_lengths. You have to do it where <place to add more lines> is written. 
 // You can use this structure: array_lengths.push( findLongestWord( [<add some elements>] ) );
 // Don't foget to add words to the array. The longer the better!
 // Now reload the page and see how changed the average.
 
-*/
+
 
 
 //EXERCISE 5
 //
 // Restore the comments marks (/* */) of the previous exercises.
 // Uncomment this exercise code deleting /* and */ chars
-// Now we are going to save the longest length of every array in a new array called array_lengths
 // Open the console and reload the index page to see the result of the code.
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. 
 // As a condition you must use the object freqCounter.
 // Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
 
-/*
-
 function charFreq( string ) {
-	freqCounter = {};
-
+	var freqCounter = {};
+	var i;
+	for (i = 0; i < string.length; i++) {
+		if (string.charAt(i) in freqCounter)
+			freqCounter[string.charAt(i)] += +1
+		else
+			freqCounter[string.charAt(i)] = 1
 	}
+	
 	return freqCounter;
 }
 
@@ -141,7 +162,7 @@ console.log( counter['s'] === 1 );
 console.log( counter.d === 1 );
 console.log( counter['f'] === 1 );
 
-*/
+
 
 
 //BONUS EXERCISE
