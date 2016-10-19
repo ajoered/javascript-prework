@@ -7,8 +7,8 @@ function reset(rover) {
   rover.position[0] = 0;
   rover.position[1] = 0;
   rover.direction = 'N';
- console.log("New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]");
- console.log("The Rover is now facing: " + rover.direction);
+ console.log("Reset Rover position to: [" + rover.position[0] + ", " + rover.position[1] + "]");
+ console.log("Reset Rover to face: " + rover.direction);
 }
 
 function turnLeft(rover) {
@@ -90,28 +90,42 @@ function goBack(rover) {
 function commandString (string, vehicle) {
 	var stringArray = string.split('')
 	for (var i = 0; i < string.length; i++ ) {
-		if (stringArray[i] = "f") {
-			goForward(vehicle);
-	} else if (stringArray[i] = "b") {
-			goBack(vehicle);
-	} else if (stringArray[i] = "r") {
-			turnRight(vehicle);	
-	} else if (stringArray[i] = "l") {
-			turnLeft(vehicle);
-	} else {
-		return "Invalid characters: please only use 'f''b''r' & 'l'"
-	}}
+			switch (stringArray[i]){
+				case "f":
+					goForward(vehicle);
+					break;
+				case "b":
+					goBack(vehicle);
+					break;
+				case "r":
+					turnRight(vehicle);	
+					break;
+				case "l":
+					turnLeft(vehicle);
+					break;
+				default:
+					return prompt("Invalid characters: please only use 'f''b''r' & 'l'");
+		}
+	}
 }
 
-
-commandString("ffrffbblbb", myRover);
+reset(myRover);
+commandString("fblf", myRover);
 
 /*
+function 2DArray(rows) {
+  var arr = [];
+
+  for (var i=0;i<rows;i++) {
+     arr[i] = [];
+  }
+
+  return arr;
+}
+
 var grid = [
   [1, 2],
   [3, 4],
   [5, 6]
 ];
-console.log(items[0][0]); // 1
-console.log(items);
 */
