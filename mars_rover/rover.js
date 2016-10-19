@@ -23,7 +23,7 @@ function turnLeft(rover) {
       rover.direction = 'E'
       break;
     case 'W':
-      rover.direction = 'E'
+      rover.direction = 'S'
       break;
   };
   	console.log("The Rover is now facing: " + rover.direction)
@@ -51,16 +51,29 @@ function turnRight(rover) {
 function goForward(rover) {
   switch(rover.direction) {
     case 'N':
-      rover.position[0]++
+    	if (rover.position[1] < 10)
+   		   rover.position[1]++
+   		else
+   			rover.position[1] = 0
       break;
     case 'E':
-      rover.position[1]++
+      if (rover.position[0] < 10)
+   		   rover.position[0]++
+   		else
+   			rover.position[0] = 0
       break;
     case 'S':
-      rover.position[0]--
+      if (rover.position[1] > 0)
+      		rover.position[1]--
+   		else
+   			rover.position[1] = 10
       break;
     case 'W':
-      rover.position[1]--
+      if (rover.position[0] > 0)
+   		   rover.position[0]--
+
+   		else
+   			rover.position[0] = 10
       break;
   };
 
@@ -70,16 +83,28 @@ function goForward(rover) {
 function goBack(rover) {
   switch(rover.direction) {
     case 'N':
-      rover.position[0]--
+      	if (rover.position[1] > 0)
+   		   rover.position[1]--
+   		else
+   			rover.position[1] = 10
       break;
     case 'E':
-      rover.position[1]--
+      	if (rover.position[0] > 0)
+   		   rover.position[0]--
+   		else
+   			rover.position[0] = 10
       break;
     case 'S':
-      rover.position[0]++
+      	if (rover.position[1] < 10)
+   		   rover.position[1]++
+   		else
+   			rover.position[1] = 0
       break;
     case 'W':
-      rover.position[1]++
+      	if (rover.position[0] < 10)
+   		   rover.position[0]++
+   		else
+   			rover.position[0] = 0
       break;
   };
 
@@ -110,7 +135,7 @@ function commandString (string, vehicle) {
 }
 
 reset(myRover);
-commandString("fblf", myRover);
+commandString("bbbbbbbbbbbbbbb", myRover);
 
 /*
 function 2DArray(rows) {
