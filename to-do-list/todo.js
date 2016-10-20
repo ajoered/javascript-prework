@@ -19,7 +19,7 @@ window.onload = function() {
     
 	newToDoItem.appendChild(textNode);
 
-    var toDoList = document.getElementByClassName('todo-list-items')[0];
+    var toDoList = document.getElementsByClassName('todo-list-items')[0];
 	
 	toDoList.insertBefore(newToDoItem, toDoList.childNodes[0]);
 
