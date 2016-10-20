@@ -14,12 +14,12 @@ window.onload = function() {
 
   function addToDoItem() {
   	var newToDoItem = document.createElement('li');
-  	var formContents = document.getElementById("todo-input").value; //extract content from form
+  	var formContents = document.getElementById('todo-input').value; //extract content from form
   	var textNode = document.createTextNode(formContents); // create a text node
     
 	newToDoItem.appendChild(textNode);
 
-    var toDoList = getElementbyClassName("todo-list-items")[0];
+    var toDoList = document.getElementByClassName('todo-list-items')[0];
 	
 	toDoList.insertBefore(newToDoItem, toDoList.childNodes[0]);
 
